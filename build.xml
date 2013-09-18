@@ -7,6 +7,7 @@
     <property name="php-test.dir" value="${basedir}/tests" />
     <property name="php-target.dir" value="${basedir}/target"/>
 
+
     <!-- ==================================================================== -->
     <!-- Cleans the directories with the generated source files				  -->
     <!-- ==================================================================== -->
@@ -25,7 +26,7 @@
     <!-- Copies the sources to the target directory							  -->
     <!-- ==================================================================== -->
     <target name="copy" depends="prepare" description="Copies the sources to the target directory.">
-        <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
+        <copy todir="${php-target.dir}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
                 <include name="**/*.yml" />
@@ -36,7 +37,7 @@
                 <expandproperties/>
             </filterchain>
         </copy>
-        <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
+        <copy todir="${php-target.dir}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
                 <include name="**/*" />
                 <exclude name="**/*.php" />
