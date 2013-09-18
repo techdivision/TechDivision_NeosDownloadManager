@@ -1,0 +1,6 @@
+prototype(TechDivision.NeosDwonloadManager:Plugin) < prototype(TYPO3.Neos:Plugin)
+prototype(TechDivision.NeosDwonloadManager:Plugin) {
+     package = 'Techdivision.NeosDownloadManager'
+     controller = 'Standard'
+     action = 'index'
+}

@@ -1,0 +1,8 @@
+'TechDivision.NeosDwonloadManager:Plugin':
+  superTypes:
+    - 'TYPO3.Neos:Plugin'
+  ui:
+    label: 'TD.NeosDwonloadManager'
+    group: 'Plugins'
+    inlineEditable: TRUE
+    icon: 'td-icon-comments'
