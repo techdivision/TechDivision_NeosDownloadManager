@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<project name="TechDivision_NeosDownloadManager" default="deploy" basedir=".">
+    <property file="${basedir}/build.properties"/>
+    <property file="${basedir}/build.default.properties"/>
+    <property environment="env" />
+    <property name="php-src.dir" value="${basedir}/src" />
+    <property name="php-test.dir" value="${basedir}/tests" />
+    <property name="php-target.dir" value="${basedir}/target"/>
+
+    <!-- ==================================================================== -->
+    <!-- Cleans the directories with the generated source files				  -->
+    <!-- ==================================================================== -->
+    <target name="clean" description="Cleans almost everything, so use carefully.">
+        <delete dir="${php-target.dir}" includeemptydirs="true" quiet="false" verbose="true" failonerror="true"/>
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Prepares all the required directories								  -->
+    <!-- ==================================================================== -->
+    <target name="prepare" depends="clean" description="Prepares all the required directories.">
+        <mkdir dir="${php-target.dir}" />
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Copies the sources to the target directory							  -->
+    <!-- ==================================================================== -->
+    <target name="copy" depends="prepare" description="Copies the sources to the target directory.">
+        <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${php-src.dir}">
+                <include name="**/*.php" />
+                <include name="**/*.yml" />
+                <include name="**/*.xml" />
+                <include name="**/*.xml.*" />
+            </fileset>
+            <filterchain>
+                <expandproperties/>
+            </filterchain>
+        </copy>
+        <copy todir="${php-target.dir}/${webapp.name}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${php-src.dir}">
+                <include name="**/*" />
+                <exclude name="**/*.php" />
+                <exclude name="**/*.yml" />
+                <exclude name="**/*.xml" />
+                <exclude name="**/*.xml.*" />
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Copies the sources to the deploy directory     					  -->
+    <!-- ==================================================================== -->
+    <target name="deploy" depends="copy" description="Copies the sources to the deploy directory.">
+		<echo message="Copy sources to ${instance.dir} ..." />
+        <copy todir="${deploy.dir}" preservelastmodified="true" overwrite="true">
+            <fileset dir="${php-target.dir}">
+                <include name="**/*"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <!-- ==================================================================== -->
+    <!-- Deletes the magento instance for testing purpose   			 	  -->
+    <!-- ==================================================================== -->
+    <target name="delete-instance" description="Deletes the magento instance for testing purpose.">
+        <echo message="Delete existing sources in ${instance.dir}..."/>
+        <delete dir="${instance.dir}" includeemptydirs="true" quiet="false" verbose="false" failonerror="true" followsymlinks="false"/>
+        <delete dir="${basedir}/instance-src" includeemptydirs="true" quiet="false" verbose="false" failonerror="true"/>
+    </target>
+        	
+	<!-- ==================================================================== -->
+	<!-- Initializing a magento instance for testing purpose   			 	  -->
+	<!-- ==================================================================== -->
+	<target name="init-instance" description="Creats a magento instance for testing purpose">
+		<antcall target="delete-instance"/>
+        <exec executable="composer.phar" dir="${deploy.dir}">
+            <arg line="create-project --dev --stability alpha typo3/neos-base-distribution ${webapp.name}"/>
+        </exec>
+        <exec dir="${basedir}" executable="/bin/ln" >
+            <arg line="-s ${instance.dir} instance-src"/>
+        </exec>
+	</target>
+
+</project>
