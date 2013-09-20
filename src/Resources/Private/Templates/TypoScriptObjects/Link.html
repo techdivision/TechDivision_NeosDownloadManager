@@ -1,0 +1,11 @@
+{namespace neos=TYPO3\Neos\ViewHelpers}
+<neos:contentElement node="{node}">
+    <f:if condition="{videoUrl}">
+        <f:then>
+            <div><a href="{videoUrl}">{title}</a></div>
+        </f:then>
+        <f:else>
+            <div>{title}</div>
+        </f:else>
+    </f:if>
+</neos:contentElement>

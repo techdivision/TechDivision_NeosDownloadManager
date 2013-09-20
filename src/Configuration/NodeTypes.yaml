@@ -1,8 +1,56 @@
-'TechDivision.NeosDwonloadManager:Plugin':
-  superTypes:
-    - 'TYPO3.Neos:Plugin'
+'TechDivision.NeosDownloadManager:Link':
+  superTypes: ['TYPO3.Neos:Content']
   ui:
-    label: 'TD.NeosDwonloadManager'
-    group: 'Plugins'
-    inlineEditable: TRUE
-    icon: 'td-icon-comments'
+    group: 'General'
+    label: 'Techdivision Link'
+    inspector:
+          groups:
+            video:
+              label: 'Media Setting'
+              position: 5
+  properties:
+    videoUrl:
+      type: string
+      defaultValue: 'http://www.techdivision.com/'
+      ui:
+        label: 'Download URL'
+        inspector:
+                group: 'video'
+                reloadIfChanged: TRUE
+    title:
+      type: string
+      defaultValue: 'test'
+      ui:
+        label: 'Download Title'
+        inspector:
+                group: 'video'
+                reloadIfChanged: TRUE
+
+
+'TechDivision.NeosDownloadManager:Table':
+  superTypes: ['TYPO3.Neos:Content']
+  ui:
+    group: 'General'
+    label: 'Techdivision Table'
+    inspector:
+          groups:
+            video:
+              label: 'Media Setting'
+              position: 5
+  properties:
+    videoUrl:
+      type: string
+      defaultValue: 'http://www.techdivision.com/'
+      ui:
+        label: 'Download URL'
+        inspector:
+                group: 'video'
+                reloadIfChanged: TRUE
+    title:
+      type: string
+      defaultValue: 'test'
+      ui:
+        label: 'Download Title'
+        inspector:
+                group: 'video'
+                reloadIfChanged: TRUE

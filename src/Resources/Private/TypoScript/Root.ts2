@@ -1,6 +1,14 @@
-prototype(TechDivision.NeosDwonloadManager:Plugin) < prototype(TYPO3.Neos:Plugin)
-prototype(TechDivision.NeosDwonloadManager:Plugin) {
-     package = 'Techdivision.NeosDownloadManager'
-     controller = 'Standard'
-     action = 'index'
+
+prototype(TechDivision.NeosDownloadManager:Link) < prototype(TYPO3.Neos:Template)
+prototype(TechDivision.NeosDownloadManager:Link) {
+	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/Link.html'
+	title = ${q(node).property('title')}
+	videoUrl= ${q(node).property('videoUrl')}
+}
+
+prototype(TechDivision.NeosDownloadManager:Table) < prototype(TYPO3.Neos:Template)
+prototype(TechDivision.NeosDownloadManager:Table) {
+	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/Table.html'
+	title = ${q(node).property('title')}
+	videoUrl= ${q(node).property('videoUrl')}
 }
