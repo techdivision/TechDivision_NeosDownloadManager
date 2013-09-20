@@ -29,9 +29,10 @@
         <copy todir="${php-target.dir}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
-                <include name="**/*.yml" />
+                <include name="**/*.yaml" />
                 <include name="**/*.xml" />
                 <include name="**/*.xml.*" />
+                <include name="**/*.html.*" />
             </fileset>
             <filterchain>
                 <expandproperties/>
@@ -41,9 +42,10 @@
             <fileset dir="${php-src.dir}">
                 <include name="**/*" />
                 <exclude name="**/*.php" />
-                <exclude name="**/*.yml" />
+                <exclude name="**/*.yaml" />
                 <exclude name="**/*.xml" />
                 <exclude name="**/*.xml.*" />
+                <include name="**/*.html.*" />
             </fileset>
         </copy>
     </target>
