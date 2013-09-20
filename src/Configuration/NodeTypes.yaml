@@ -9,7 +9,7 @@
               label: 'Media Setting'
               position: 5
   properties:
-    videoUrl:
+    mediaUrl:
       type: string
       defaultValue: 'http://www.techdivision.com/'
       ui:
@@ -19,7 +19,7 @@
                 reloadIfChanged: TRUE
     title:
       type: string
-      defaultValue: 'test'
+      defaultValue: 'your link title'
       ui:
         label: 'Download Title'
         inspector:

@@ -32,6 +32,7 @@
                 <include name="**/*.yaml" />
                 <include name="**/*.xml" />
                 <include name="**/*.xml.*" />
+                <include name="**/*.html.*" />
             </fileset>
             <filterchain>
                 <expandproperties/>
@@ -44,6 +45,7 @@
                 <exclude name="**/*.yaml" />
                 <exclude name="**/*.xml" />
                 <exclude name="**/*.xml.*" />
+                <include name="**/*.html.*" />
             </fileset>
         </copy>
     </target>
