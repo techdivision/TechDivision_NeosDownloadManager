@@ -52,30 +52,37 @@
           editor: Content/Inspector/Editors/SelectBoxEditor
 
 
+
+
+'TechDivision.NeosDownloadManager:OneColumn':
+  superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
+  ui:
+    label: 'TechDivision Column'
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+
+
 'TechDivision.NeosDownloadManager:TwoColumnTable':
   superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
   ui:
-    label: 'TechDivision Table'
+    label: 'TechDivision Table 2 Rows'
   childNodes:
     column0:
       type: 'TYPO3.Neos:ContentCollection'
     column1:
       type: 'TYPO3.Neos:ContentCollection'
-  properties:
-    layout:
-      defaultValue: '50-50'
-      ui:
-        reloadIfChanged: TRUE
-        inspector:
-          editorOptions:
-            values:
-              '50-50':
-                label: '50% / 50%'
-              '75-25':
-                label: '75% / 25%'
-              '25-75':
-                label: '25% / 75%'
-              '66-33':
-                label: '66% / 33%'
-              '33-66':
-                label: '33% / 66%'
+
+
+
+'TechDivision.NeosDownloadManager:ThreeColumnTable':
+  superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
+  ui:
+    label: 'TechDivision Table 3 Rows'
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+    column2:
+      type: 'TYPO3.Neos:ContentCollection'
