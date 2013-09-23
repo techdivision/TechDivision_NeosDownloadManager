@@ -55,7 +55,7 @@
 'TechDivision.NeosDownloadManager:TwoColumnTable':
   superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
   ui:
-    label: 'Table Test'
+    label: 'TechDivision Table'
   childNodes:
     column0:
       type: 'TYPO3.Neos:ContentCollection'
