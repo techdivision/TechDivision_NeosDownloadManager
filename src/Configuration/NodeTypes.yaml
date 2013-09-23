@@ -35,21 +35,14 @@
   ui:
     group: 'Structure'
     label: 'Column'
-    icon: 'icon-columns'
+    icon: 'icon-th'
     inlineEditable: TRUE
     inspector:
       groups:
         column:
           label: 'Columns'
           position: 10
-  properties:
-    layout:
-      type: string
-      ui:
-        label: 'Layout'
-        inspector:
-          group: 'column'
-          editor: Content/Inspector/Editors/SelectBoxEditor
+
 
 
 
@@ -58,6 +51,7 @@
   superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
   ui:
     label: 'TechDivision Column'
+    icon: 'icon-th-large'
   childNodes:
     column0:
       type: 'TYPO3.Neos:ContentCollection'

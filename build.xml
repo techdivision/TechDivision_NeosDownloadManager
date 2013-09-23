@@ -29,6 +29,7 @@
         <copy todir="${php-target.dir}" preservelastmodified="true" overwrite="true">
             <fileset dir="${php-src.dir}">
                 <include name="**/*.php" />
+                <include name="**/*.html" />
                 <include name="**/*.yaml" />
                 <include name="**/*.xml" />
                 <include name="**/*.xml.*" />
@@ -42,6 +43,7 @@
             <fileset dir="${php-src.dir}">
                 <include name="**/*" />
                 <exclude name="**/*.php" />
+                <include name="**/*.html" />
                 <exclude name="**/*.yaml" />
                 <exclude name="**/*.xml" />
                 <exclude name="**/*.xml.*" />
