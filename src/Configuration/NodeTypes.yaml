@@ -14,43 +14,68 @@
       defaultValue: 'http://www.techdivision.com/'
       ui:
         label: 'Download URL'
+        reloadIfChanged: TRUE
         inspector:
                 group: 'video'
-                reloadIfChanged: TRUE
     title:
       type: string
       defaultValue: 'your link title'
       ui:
         label: 'Download Title'
+        reloadIfChanged: TRUE
         inspector:
                 group: 'video'
-                reloadIfChanged: TRUE
 
 
-'TechDivision.NeosDownloadManager:Table':
+
+
+'TechDivision.NeosDownloadManager:TableColumn':
   superTypes: ['TYPO3.Neos:Content']
+  abstract: TRUE
   ui:
-    group: 'General'
-    label: 'Techdivision Table'
+    group: 'Structure'
+    label: 'Column'
+    icon: 'icon-columns'
+    inlineEditable: TRUE
     inspector:
-          groups:
-            video:
-              label: 'Media Setting'
-              position: 5
+      groups:
+        column:
+          label: 'Columns'
+          position: 10
   properties:
-    videoUrl:
+    layout:
       type: string
-      defaultValue: 'http://www.techdivision.com/'
       ui:
-        label: 'Download URL'
+        label: 'Layout'
         inspector:
-                group: 'video'
-                reloadIfChanged: TRUE
-    title:
-      type: string
-      defaultValue: 'test'
+          group: 'column'
+          editor: Content/Inspector/Editors/SelectBoxEditor
+
+
+'TechDivision.NeosDownloadManager:TwoColumnTable':
+  superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
+  ui:
+    label: 'Table Test'
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+  properties:
+    layout:
+      defaultValue: '50-50'
       ui:
-        label: 'Download Title'
+        reloadIfChanged: TRUE
         inspector:
-                group: 'video'
-                reloadIfChanged: TRUE
+          editorOptions:
+            values:
+              '50-50':
+                label: '50% / 50%'
+              '75-25':
+                label: '75% / 25%'
+              '25-75':
+                label: '25% / 75%'
+              '66-33':
+                label: '66% / 33%'
+              '33-66':
+                label: '33% / 66%'

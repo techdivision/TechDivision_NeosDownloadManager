@@ -6,9 +6,26 @@ prototype(TechDivision.NeosDownloadManager:Link) {
 	mediaUrl = ${q(node).property('mediaUrl')}
 }
 
-prototype(TechDivision.NeosDownloadManager:Table) < prototype(TYPO3.Neos:Template)
-prototype(TechDivision.NeosDownloadManager:Table) {
-	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/Table.html'
-	title = ${q(node).property('title')}
-
+prototype(TechDivision.NeosDownloadManager:TableColumn) < prototype(TYPO3.Neos:Template)
+prototype(TechDivision.NeosDownloadManager:TableColumn) {
+	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/TableColumn.html'
+	layout = ${q(node).property('layout')}
+	columns = TYPO3.TypoScript:Collection
+	columns {
+		collection = ${q(node).children('[instanceof TYPO3.Neos:ContentCollection]')}
+		itemRenderer = TechDivision.NeosDownloadManager:TableColumnItem
+		itemName = 'node'
+	}
 }
+
+
+prototype(TechDivision.NeosDownloadManager:TableColumnItem) < prototype(TYPO3.Neos:Template)
+prototype(TechDivision.NeosDownloadManager:TableColumnItem) {
+	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/TableColumnItem.html'
+	columnContent = TYPO3.Neos:ContentCollection
+	columnContent {
+		nodePath = '.'
+	}
+}
+
+prototype(TechDivision.NeosDownloadManager:TwoColumnTable) < prototype(TYPO3.Neos.NodeTypes:TableColumn)
