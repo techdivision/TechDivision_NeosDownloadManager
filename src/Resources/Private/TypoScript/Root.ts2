@@ -28,6 +28,6 @@ prototype(TechDivision.NeosDownloadManager:TableColumnItem) {
 	}
 }
 
-prototype(TechDivision.NeosDownloadManager:OneColumn) < prototype(TYPO3.Neos.NodeTypes:TableColumn)
-prototype(TechDivision.NeosDownloadManager:TwoColumnTable) < prototype(TYPO3.Neos.NodeTypes:TableColumn)
-prototype(TechDivision.NeosDownloadManager:ThreeColumnTable) < prototype(TYPO3.Neos.NodeTypes:TableColumn)
+prototype(TechDivision.NeosDownloadManager:OneColumn) < prototype(TechDivision.NeosDownloadManager:TableColumn)
+prototype(TechDivision.NeosDownloadManager:TwoColumnTable) < prototype(TechDivision.NeosDownloadManager:TableColumn)
+prototype(TechDivision.NeosDownloadManager:ThreeColumnTable) < prototype(TechDivision.NeosDownloadManager:TableColumn)
