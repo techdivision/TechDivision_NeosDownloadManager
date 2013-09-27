@@ -1,5 +1,11 @@
 {namespace neos=TYPO3\Neos\ViewHelpers}
 {namespace ts=TYPO3\TypoScript\ViewHelpers}
 <neos:contentElement node="{node}">
-    <ts:render path="columns"/>
+    <table class="table table-bordered table-hover">
+        <tbody>
+        <ts:render path="columns"/>
+
+
+        </tbody>
+    </table>
 </neos:contentElement>

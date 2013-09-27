@@ -60,7 +60,7 @@
 'TechDivision.NeosDownloadManager:TwoColumnTable':
   superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
   ui:
-    label: 'TechDivision Table 2 Rows'
+    label: 'TechDivision Table 2 Column'
   childNodes:
     column0:
       type: 'TYPO3.Neos:ContentCollection'
@@ -72,6 +72,35 @@
 'TechDivision.NeosDownloadManager:ThreeColumnTable':
   superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
   ui:
+    label: 'TechDivision Table 3 Column'
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+    column2:
+      type: 'TYPO3.Neos:ContentCollection'
+
+
+
+
+
+'TechDivision.NeosDownloadManager:TwoRow':
+  superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
+  ui:
+    label: 'TechDivision Table 2 Rows'
+  childNodes:
+    column0:
+      type: 'TYPO3.Neos:ContentCollection'
+    column1:
+      type: 'TYPO3.Neos:ContentCollection'
+
+
+
+
+'TechDivision.NeosDownloadManager:ThreeRow':
+  superTypes: ['TechDivision.NeosDownloadManager:TableColumn']
+  ui:
     label: 'TechDivision Table 3 Rows'
   childNodes:
     column0:
@@ -80,3 +109,4 @@
       type: 'TYPO3.Neos:ContentCollection'
     column2:
       type: 'TYPO3.Neos:ContentCollection'
+

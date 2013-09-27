@@ -28,6 +28,35 @@ prototype(TechDivision.NeosDownloadManager:TableColumnItem) {
 	}
 }
 
+
+prototype(TechDivision.NeosDownloadManager:TableRow) < prototype(TYPO3.Neos:Template)
+prototype(TechDivision.NeosDownloadManager:TableRow) {
+	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/TableRow.html'
+	layout = ${q(node).property('layout')}
+	columns = TYPO3.TypoScript:Collection
+	columns {
+	    collection  =  ${q(node).children('[instanceof TYPO3.Neos:ContentCollection]')}
+		itemRenderer = TechDivision.NeosDownloadManager:TableRowItem
+		itemName = 'node'
+	}
+}
+
+
+prototype(TechDivision.NeosDownloadManager:TableRowItem) < prototype(TYPO3.Neos:Template)
+prototype(TechDivision.NeosDownloadManager:TableRowItem) {
+	templatePath = 'resource://TechDivision.NeosDownloadManager/Private/Templates/TypoScriptObjects/TableRowItem.html'
+	columnContent = TYPO3.Neos:ContentCollection
+	columnContent {
+		nodePath = '.'
+	}
+}
+
+
+
 prototype(TechDivision.NeosDownloadManager:OneColumn) < prototype(TechDivision.NeosDownloadManager:TableColumn)
 prototype(TechDivision.NeosDownloadManager:TwoColumnTable) < prototype(TechDivision.NeosDownloadManager:TableColumn)
 prototype(TechDivision.NeosDownloadManager:ThreeColumnTable) < prototype(TechDivision.NeosDownloadManager:TableColumn)
+
+
+prototype(TechDivision.NeosDownloadManager:TwoRow) < prototype(TechDivision.NeosDownloadManager:TableRow)
+prototype(TechDivision.NeosDownloadManager:ThreeRow) < prototype(TechDivision.NeosDownloadManager:TableRow)
